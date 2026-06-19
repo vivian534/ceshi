@@ -127,6 +127,39 @@
         @media (max-width: 480px) {
             .loading-toast { font-size: 0.75rem; padding: 6px 16px; top: 12px; max-width: 85%; }
         }
+
+        /* ⭐ ===== 新增：右下角悬浮提示 ===== */
+        .floating-tip {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: rgba(44, 62, 80, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff3e0;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            max-width: 230px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            line-height: 1.7;
+            border-left: 4px solid #fbbf24;
+            pointer-events: none;
+            letter-spacing: 0.3px;
+        }
+        @media (max-width: 480px) {
+            .floating-tip {
+                bottom: 12px;
+                right: 12px;
+                font-size: 0.6rem;
+                padding: 8px 12px;
+                max-width: 160px;
+                border-left-width: 3px;
+                line-height: 1.6;
+            }
+        }
+        /* ⭐ 新增结束 */
     </style>
 </head>
 <body>
@@ -313,5 +346,12 @@
         }
     });
 </script>
+
+<!-- ⭐ 新增：右下角悬浮提示（一直显示，不消失） -->
+<div class="floating-tip">
+    💡 网页若长时间无反应，<br>复制网址换一个浏览器打开，<br>目前一直正常可用~
+</div>
+<!-- ⭐ 新增结束 -->
+
 </body>
 </html>
