@@ -434,10 +434,11 @@
         if (pct < 100) {
             if (text) text.textContent = '后台正在加载资源... ' + pct + '%';
         } else {
-            // ===== 这里改了 =====
-            if (text) text.textContent = '✅ 全部资源加载完成（共 ' + total + ' 条），可搜索';
+            // ===== 修复：显示实际数据条数，而不是 part 文件数量 =====
+            var count = (window.dataset && window.dataset.length) ? window.dataset.length : total;
+            if (text) text.textContent = '✅ 全部资源加载完成（共 ' + count + ' 条），可搜索';
             if (funny) funny.textContent = '';
-            // ===== 改完 =====
+            // ===== 修复结束 =====
         }
     };
 
