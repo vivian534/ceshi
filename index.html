@@ -281,7 +281,7 @@
 </div>
 
 <!-- ===== 加载数据 ===== -->
-<script src="loader.js"></script>
+<script src="loader.js?v=2"></script>
 
 <!-- ===== 搜索 + 教程逻辑 ===== -->
 <script>
@@ -490,6 +490,22 @@
 
         console.log('✅ 悬浮提示已初始化（可拖动 + 可关闭）');
     })();
+</script>
+
+<!-- ===== 新增：注册 Service Worker ===== -->
+<script>
+    // 注册 Service Worker，让资源被浏览器长期缓存，二次打开秒开
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('✅ Service Worker 注册成功');
+                })
+                .catch(function(error) {
+                    console.warn('❌ Service Worker 注册失败:', error);
+                });
+        });
+    }
 </script>
 
 </body>
