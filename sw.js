@@ -2,7 +2,7 @@
 //  sw.js - 自动按需缓存（以后新增 part 文件不用改这里）
 // ============================================================
 
-const CACHE_NAME = 'catbook-permanent-v1';
+const CACHE_NAME = 'catbook-permanent-v3';
 
 // 安装时只缓存核心框架（让页面秒开）
 self.addEventListener('install', event => {
