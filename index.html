@@ -434,8 +434,10 @@
         if (pct < 100) {
             if (text) text.textContent = '后台正在加载资源... ' + pct + '%';
         } else {
-            if (text) text.textContent = '✅ 全部资源已就绪！';
-            if (funny) funny.textContent = '😺 书都找到啦！快来搜索吧~';
+            // ===== 这里改了 =====
+            if (text) text.textContent = '✅ 全部资源加载完成（共 ' + total + ' 条），可搜索';
+            if (funny) funny.textContent = '';
+            // ===== 改完 =====
         }
     };
 
@@ -588,7 +590,7 @@
     // 注册 Service Worker，让资源被浏览器长期缓存，二次打开秒开
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js?v=4')
+            navigator.serviceWorker.register('/sw.js?v=3')
                 .then(function(registration) {
                     console.log('✅ Service Worker 注册成功');
                 })
